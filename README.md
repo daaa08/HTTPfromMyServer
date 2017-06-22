@@ -33,15 +33,15 @@ InputStream is = client.getInputStream();    // 쓰기
 
 //
 InputStream is;
-				try {  
-					 is = client.getInputStream();
-					// 연결된 소켓과 스트림을 열어서 통신 준비를 함
-					BufferedReader br = new BufferedReader(new InputStreamReader(is)); // 버퍼로 데이터 처리속도를 높힌다
-					String line = "";
-					// 데이터가 없을때까지 한줄씩 읽어서 출력
-					while((line = br.readLine()) != null){
-						System.out.println(line);
-						}
+try {  
+     is = client.getInputStream();
+    // 연결된 소켓과 스트림을 열어서 통신 준비를 함
+    BufferedReader br = new BufferedReader(new InputStreamReader(is)); // 버퍼로 데이터 처리속도를 높힌다
+    String line = "";
+    // 데이터가 없을때까지 한줄씩 읽어서 출력
+    while((line = br.readLine()) != null){
+    System.out.println(line);
+}
 ```
 
 #### Client

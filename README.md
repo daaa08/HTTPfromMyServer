@@ -89,3 +89,61 @@ try {
 
            }
  ```
+ 
+ ---
+## Tomcat
+- 웹서버 + 웹컨테이너 
+- http 웹 서버를 통해 받고 내부 프로그램은 WAS를 통해 처리. (정적인 데이터와 동적인 데이터를 효과적으로 처리가 가능)
+>WAS(Web Application Server) : 다양한 기능을 컨테이너에 구현하여 다양한 역할을 수행할 수 있는 서버
+> 웹 컨테이너 : 클라이언트의 요청이 있을 때 내부의 프로그램을 통해 결과를 만들어내고 이것을 다시 클라이언트에 전달해주는 역할
+
+![enter image description here](http://cfile24.uf.tistory.com/image/156A50404F93CDE817331E)
+
+> 사용자 -> Tomcat -> 데이터베이스(값) -> Tomcat (웹에서 데이터들을 받아 가공하여 뿌려줌(Json,xml등을 위젯에 뿌려줌)) -> 사용자 (데코가되어 보여짐)
+
+> apache랑 차이점은?
+> - http웹서버, 클라이언트가 GET, POST, DELETE 등등의 메소드를 이용해 요청을 하면 이 프로그램이 어떤 결과를 돌려주는 기능
+> - Tomcat이랑 큰 차이점은 웹 컨테이너의 차이!
+
+> 그러면 왜 apache를 사용할까?
+> - 우선 목적이 다름 , 웹 서버는 정적인 데이터ㄹ 처리하는 방식임. 이미지나 단순 html파일과 같은 리소스를 제공하는 파일은 웹 서버를 이용하는것이 속도가 더 빠르기 때문임. WAS는 동적인 데이터를 처리하므로 데이터베이스와 연결되어 데이터를 주거나 받는 프로그램임 때문에 데이터를 주고 받을때 활용을 해야 함!
+
+~~~
+1. 톰캣 다운로드
+	http://tomcat.apache.org/download-80.cgi 페이지에서 파일 다운
+2. 파일 이동
+터미널에 들어간 이후 아래와 같이 입력하여 배포 경로에 파일을 이동 시켜준다.
+	sudo mkdir -p /usr/local
+	sudo mv ~/Downloads/apache-tomcat-8.0.8 /usr/local
+3. 다음 최신 버전을 손쉽게 배포하기 위해 아래와 같이 링크를 걸어준다.
+	sudo rm -f /Library/Tomcat
+	sudo ln -s /usr/local/apache-tomcat-8.0.8 /Library/Tomcat
+4. 톰캣폴더의 접근권한을 부여한다.
+	sudo chown -R <로그인_아이디> /Library/Tomcat
+5. 쉘 실행 권한 부여
+	sudo chmod +x /Library/Tomcat/bin/*.sh 
+6. 톰캣 시작
+	/Library/Tomcat/bin/startup.sh
+7. 톰캣 종료
+	/Library/Tomcat/bin/shutdown.sh  
+~~~
+> *사용을 안할때는 종료하기*
+
+## Mysql
+
+~~~
+1. 아래 페이지에서 다운(mac용)
+https://dev.mysql.com/downloads/file/?id=469584 
+2. 설치 후 실행하고, 시스템 환경설정 mysql 에서 Server Start 하기
+3. 터미널에서 cd /usr/local/mysql/bin 경로 진입
+4. sudo ./mysql -p 실행 (임시 발급받은 비밀번호 꼭 복사해두기)
+5. SET PASSWORD = PASSWORD('root'); 비밀번호 변경하기
+6. flush privileges; 적용
+7. exit; mysql 종료
+~~~
+> ; 을 날려줘야 명령어가 실행 됨
+> create database 데이터베이스이름; DB생성
+> workbench를 사용하여 손쉽게 접근 가능 (schemas 에서 접근)
+> mac은 한글 설정 꼭 해주기. (UTF-8)
+
+ 

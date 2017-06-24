@@ -141,9 +141,8 @@ https://dev.mysql.com/downloads/file/?id=469584
 6. flush privileges; 적용
 7. exit; mysql 종료
 ~~~
-> ; 을 날려줘야 명령어가 실행 됨
-> create database 데이터베이스이름; DB생성
-> workbench를 사용하여 손쉽게 접근 가능 (schemas 에서 접근)
-> mac은 한글 설정 꼭 해주기. (UTF-8)
+- ; 을 날려줘야 명령어가 실행 됨
+- create database 데이터베이스이름; DB생성
+- workbench를 사용하여 손쉽게 접근 가능 (schemas 에서 접근)
+- mac은 한글 설정 꼭 해주기. (UTF-8)
 
- 
